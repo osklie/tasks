@@ -1,6 +1,5 @@
-package com.crud.tasks;
+package com.crud.task;
 
-import com.crud.task.domain.TaskDto;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
