@@ -9,8 +9,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BadgesDto {
+
     @JsonProperty("votes")
     private int votes;
+
     @JsonProperty("attachmentsByType")
-    private AttachmentsByTypeDto attachmentsByType;
+    private AttachmentsByTypeDto attachments;
 }

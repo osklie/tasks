@@ -2,7 +2,7 @@
 //
 //import com.crud.task.domain.TrelloBoardDto;
 //import com.crud.task.domain.TrelloCardDto;
-//import com.crud.task.mapper.CreatedTrelloCardDto;
+//import com.crud.task.domain.CreatedTrelloCardDto;
 //import com.crud.task.trello.config.TrelloConfig;
 //import org.junit.jupiter.api.Test;
 //import org.junit.jupiter.api.extension.ExtendWith;

@@ -1,13 +1,12 @@
 package com.crud.task.controller;
 
-import com.crud.task.client.TrelloClient;
+import com.crud.task.domain.CreatedTrelloCardDto;
 import com.crud.task.domain.TrelloBoardDto;
+import com.crud.task.domain.TrelloCardDto;
+import com.crud.task.trello.facade.TrelloFacade;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,24 +15,16 @@ import java.util.List;
 @RequiredArgsConstructor
 @CrossOrigin("*")
 public class TrelloController {
-    private final TrelloClient trelloClient;
+
+    private final TrelloFacade trelloFacade;
 
     @GetMapping("boards")
-    public void getTrelloBoards() {
-
-        List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
-
-        trelloBoards.forEach(trelloBoardDto -> {
-            System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName());
-        });
-
-
+    public ResponseEntity<List<TrelloBoardDto>> getTrelloBoards() {
+        return ResponseEntity.ok(trelloFacade.fetchTrelloBoards());
     }
-    @GetMapping("kodilla")
-    private void getTrelloBoard() {
-        List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
-        trelloBoards.stream()
-                .filter(name-> name.getName().startsWith("Kodilla"))
-                .forEach(System.out::println);
+
+    @PostMapping("cards")
+    public ResponseEntity<CreatedTrelloCardDto> createTrelloCard(@RequestBody TrelloCardDto trelloCardDto) {
+        return ResponseEntity.ok(trelloFacade.createCard(trelloCardDto));
     }
 }

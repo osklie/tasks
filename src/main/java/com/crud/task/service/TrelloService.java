@@ -2,10 +2,10 @@ package com.crud.task.service;
 
 import com.crud.task.client.TrelloClient;
 import com.crud.task.config.AdminConfig;
+import com.crud.task.domain.CreatedTrelloCardDto;
 import com.crud.task.domain.Mail;
 import com.crud.task.domain.TrelloBoardDto;
 import com.crud.task.domain.TrelloCardDto;
-import com.crud.task.mapper.CreatedTrelloCardDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
